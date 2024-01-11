@@ -34,7 +34,7 @@ CREATE TABLE login (
 CREATE TABLE BOARD (
     board_no INT AUTO_INCREMENT PRIMARY KEY, -- 게시물 번호
     user_id VARCHAR(20) NOT NULL, -- 회원 아이디 fk
-    user_name VARCHAR(50) NOT NULL, -- 게시물 작성자 이름
+    user_name VARCHAR(30) NOT NULL, -- 게시물 작성자 이름
     board_title VARCHAR(100) NOT NULL, -- 게시물 제목
     board_content VARCHAR(8000) NOT NULL, -- 게시물 내용
     board_group INT NOT NULL,  -- 원본 게시물 번호
@@ -66,7 +66,7 @@ CREATE TABLE board_file (
 CREATE TABLE NOTICE (
     notice_no INT AUTO_INCREMENT PRIMARY KEY, -- 게시물 번호
     user_id VARCHAR(20) NOT NULL, -- 회원 아이디 fk
-    user_name VARCHAR(50) NOT NULL, -- 문의사항 작성자 이름
+    user_name VARCHAR(30) NOT NULL, -- 문의사항 작성자 이름
     notice_title VARCHAR(100) NOT NULL, -- 게시물 제목
     notice_content VARCHAR(8000) NOT NULL, -- 게시물 내용
     notice_group INT NOT NULL,  -- 원본 게시물 번호
