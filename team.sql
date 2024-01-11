@@ -33,64 +33,56 @@ CREATE TABLE login (
 
 //게시판
 CREATE TABLE BOARD (
-    board_no INT AUTO_INCREMENT PRIMARY KEY, -- 게시물 번호
-    user_id VARCHAR(20) NOT NULL, -- 회원 아이디 fk
-    user_name VARCHAR(30) NOT NULL, -- 게시물 작성자 이름
-    board_title VARCHAR(100) NOT NULL, -- 게시물 제목
-    board_content VARCHAR(8000) NOT NULL, -- 게시물 내용
-    board_group INT NOT NULL,  -- 원본 게시물 번호
-    board_step INT NOT NULL, -- 답변 출력 순서
-    board_date DATE DEFAULT CURRENT_DATE NOT NULL, -- 게시물 작성일
-    board_hit INT DEFAULT 0 NOT NULL, -- 게시물 조회수
-    board_file VARCHAR(500), -- 첨부 파일 경로
+    board_no INT AUTO_INCREMENT PRIMARY KEY,                 -- 게시물 번호
+    user_id VARCHAR(20) NOT NULL,                            -- 회원 아이디 fk
+    user_name VARCHAR(30) NOT NULL,                          -- 게시물 작성자 이름
+    board_title VARCHAR(100) NOT NULL,                       -- 게시물 제목
+    board_content VARCHAR(8000) NOT NULL,                    -- 게시물 내용
+    board_group INT NOT NULL,                                -- 원본 게시물 번호
+    board_step INT NOT NULL,                                 -- 답변 출력 순서
+    board_date DATE DEFAULT CURRENT_DATE NOT NULL,           -- 게시물 작성일
+    board_hit INT DEFAULT 0 NOT NULL,                        -- 게시물 조회수
+    board_file VARCHAR(500),                                 -- 첨부 파일 경로
     KEY board_FK (user_id),
     CONSTRAINT board_FK FOREIGN KEY (user_id) REFERENCES USER (user_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-
-
 //게시판 - 파일
 CREATE TABLE board_file (
-  uuid VARCHAR(500) NOT NULL, -- uuid 고유식별자 생성표준
-  upload_path VARCHAR(4096) NOT NULL, -- 업로드 경로
-  file_name VARCHAR(100) NOT NULL, -- 파일명
-  file_type VARCHAR(255) DEFAULT '1', -- 파일 타입
-  board_no INT(11) NOT NULL, -- 게시물 번호
-  PRIMARY KEY (uuid),
-  KEY board_no (board_no),
-  CONSTRAINT board_file_fk FOREIGN KEY (board_no) REFERENCES board (board_no) ON DELETE CASCADE ON UPDATE CASCADE
+    uuid VARCHAR(500) NOT NULL,                                 -- uuid 고유식별자 생성표준
+    upload_path VARCHAR(4096) NOT NULL,                         -- 업로드 경로
+    file_name VARCHAR(100) NOT NULL,                            -- 파일명
+    file_type VARCHAR(255) DEFAULT '1',                         -- 파일 타입
+    board_no INT(11) NOT NULL,                                  -- 게시물 번호
+    PRIMARY KEY (uuid),
+    CONSTRAINT board_file_fk FOREIGN KEY (board_no) REFERENCES board (board_no) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-
 
 // 공지사항
 CREATE TABLE NOTICE (
-    notice_no INT AUTO_INCREMENT PRIMARY KEY, -- 게시물 번호
-    user_id VARCHAR(20) NOT NULL, -- 회원 아이디 fk
-    user_name VARCHAR(30) NOT NULL, -- 문의사항 작성자 이름
-    notice_title VARCHAR(100) NOT NULL, -- 게시물 제목
-    notice_content VARCHAR(8000) NOT NULL, -- 게시물 내용
-    notice_group INT NOT NULL,  -- 원본 게시물 번호
-    notice_step INT NOT NULL, -- 답변 출력 순서
-    notice_date DATE DEFAULT CURRENT_DATE NOT NULL, -- 게시물 작성일(sysdate)
-    notice_hit INT DEFAULT 0 NOT NULL, -- 게시물 조회수
-    notice_file VARCHAR(500), -- 첨부 파일 경로
+    notice_no INT AUTO_INCREMENT PRIMARY KEY,                 -- 게시물 번호
+    user_id VARCHAR(20) NOT NULL,                             -- 회원 아이디 fk
+    user_name VARCHAR(30) NOT NULL,                           -- 문의사항 작성자 이름
+    notice_title VARCHAR(100) NOT NULL,                       -- 게시물 제목
+    notice_content VARCHAR(8000) NOT NULL,                    -- 게시물 내용
+    notice_group INT NOT NULL,                                -- 원본 게시물 번호
+    notice_step INT NOT NULL,                                 -- 답변 출력 순서
+    notice_date DATE DEFAULT CURRENT_DATE NOT NULL,           -- 게시물 작성일(sysdate)
+    notice_hit INT DEFAULT 0 NOT NULL,                        -- 게시물 조회수
+    notice_file VARCHAR(500),                                 -- 첨부 파일 경로
     KEY notice_FK (user_id),
     CONSTRAINT notice_FK FOREIGN KEY (user_id) REFERENCES USER (user_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-
-
 //공지사항 - 파일
 CREATE TABLE notice_file (
-  uuid VARCHAR(500) NOT NULL, -- uuid 고유식별자 생성표준
-  upload_path VARCHAR(4096) NOT NULL, -- 업로드 경로
-  file_name VARCHAR(100) NOT NULL, -- 파일명
-  file_type VARCHAR(255) DEFAULT '1', -- 파일 타입
-  notice_no INT(11) NOT NULL, -- 공지사항 번호
-  PRIMARY KEY (uuid),
-  KEY notice_no (notice_no),
-  CONSTRAINT notice_file_fk FOREIGN KEY (notice_no) REFERENCES NOTICE (notice_no) ON DELETE CASCADE ON UPDATE CASCADE
+    uuid VARCHAR(500) NOT NULL,                     -- uuid 고유식별자 생성표준
+    upload_path VARCHAR(4096) NOT NULL,             -- 업로드 경로
+    file_name VARCHAR(100) NOT NULL,                -- 파일명
+    file_type VARCHAR(255) DEFAULT '1',             -- 파일 타입
+    notice_no INT(11) NOT NULL,                     -- 공지사항 번호
+    PRIMARY KEY (uuid),
+    CONSTRAINT notice_file_fk FOREIGN KEY (notice_no) REFERENCES NOTICE (notice_no) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
