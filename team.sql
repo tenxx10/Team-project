@@ -101,8 +101,8 @@ CREATE TABLE Reservation (
     user_name     VARCHAR(30)      NOT NULL,       -- 회원 이름
     user_age      INT(30)          NOT NULL,       -- 회원 나이
     user_gen      VARCHAR(20)      ,               -- 회원 성별(male, female,etc)
-    user_phone    VARCHAR(20)      NOT NULL,       -- 회원 전화번호
-    user_email    VARCHAR(100)     NOT NULL,       -- 회원 이메일
+    reserve_phone    INT(20)       NOT NULL,       -- 예약자 전화번호
+    reserve_email    VARCHAR(100)  ,               -- 예약자 이메일
     reserve_disease VARCHAR(50)    NOT NULL,       -- 대상 질병
     reserve_item VARCHAR(100),                     -- 백신 제품명
     reserve_date DATE,                             -- 접종 예약 일자
