@@ -7,7 +7,7 @@ CREATE TABLE USER (
     user_gen      VARCHAR(20)      NOT NULL,              -- 회원 성별(male, female, etc)
     user_phone    VARCHAR(20)      NOT NULL,              -- 회원 전화번호
     user_email    VARCHAR(100)     NOT NULL,              -- 회원 이메일
-    user_date     DATE             NOT NULL               -- 회원 가입일 (없어도 됨)
+    user_date     DATE             NOT NULL               -- 회원 가입일
 );
 
 //로그인
