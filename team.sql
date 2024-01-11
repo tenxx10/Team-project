@@ -1,12 +1,13 @@
 // 회원가입
 
+
 CREATE TABLE USER (
     user_id       VARCHAR(20)      PRIMARY KEY,           -- 회원 아이디
     user_pwd      VARCHAR(20)      NOT NULL,              -- 회원 비밀번호
     user_name     VARCHAR(30)      NOT NULL,              -- 회원 이름
     user_gen      VARCHAR(20)      NOT NULL,              -- 회원 성별(male, female, etc)
-    user_phone    VARCHAR(20)      NOT NULL,              -- 회원 전화번호
-    user_email    VARCHAR(100)     NOT NULL,              -- 회원 이메일
+    user_phone    VARCHAR(20)      NOT NULL UNIQUE,       -- 회원 전화번호
+    user_email    VARCHAR(100)     NOT NULL UNIQUE,       -- 회원 이메일
     user_date     DATE             NOT NULL               -- 회원 가입일
 );
 
@@ -18,15 +19,15 @@ CREATE TABLE login (
 );
 
 
-//외부로그인
-CREATE TABLE ExternalAuth (
-    AuthID INT PRIMARY KEY,
-    user_id INT,
-    AuthProvider VARCHAR(255),
-    AuthToken VARCHAR(255),
-    AuthDate DATETIME,
-    FOREIGN KEY (user_id) REFERENCES User(user_id)
-);
+-- // 외부로그인은 잠시 빼도록 하겠습니다. 
+-- CREATE TABLE ExternalAuth (
+--     AuthID INT PRIMARY KEY,
+--     user_id INT,
+--     AuthProvider VARCHAR(255),
+--     AuthToken VARCHAR(255),
+--     AuthDate DATETIME,
+--     FOREIGN KEY (user_id) REFERENCES User(user_id)
+-- );
 
 
 //게시판
