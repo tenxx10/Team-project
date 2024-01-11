@@ -39,10 +39,9 @@ CREATE TABLE BOARD (
     board_content VARCHAR(8000) NOT NULL, -- 게시물 내용
     board_group INT NOT NULL,  -- 원본 게시물 번호
     board_step INT NOT NULL, -- 답변 출력 순서
-    board_date DATE DEFAULT CURRENT_DATE NOT NULL, -- 게시물 작성일(sysdate)
+    board_date DATE DEFAULT CURRENT_DATE NOT NULL, -- 게시물 작성일
     board_hit INT DEFAULT 0 NOT NULL, -- 게시물 조회수
     board_file VARCHAR(500), -- 첨부 파일 경로
-    PRIMARY KEY (board_no),
     KEY board_FK (user_id),
     CONSTRAINT board_FK FOREIGN KEY (user_id) REFERENCES member (user_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -74,9 +73,8 @@ CREATE TABLE NOTICE (
     notice_date DATE DEFAULT CURRENT_DATE NOT NULL, -- 게시물 작성일(sysdate)
     notice_hit INT DEFAULT 0 NOT NULL, -- 게시물 조회수
     notice_file VARCHAR(500), -- 첨부 파일 경로
-    PRIMARY KEY (notice_no),
     KEY notice_FK (user_id),
-    CONSTRAINT notice_FK FOREIGN KEY (user_id) REFERENCES member (user_id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT notice_FK FOREIGN KEY (user_id) REFERENCES user (user_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
