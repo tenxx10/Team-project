@@ -12,6 +12,7 @@ CREATE TABLE USER (
 );
 
 
+
 //로그인
 CREATE TABLE login (
   user_id VARCHAR(20),
@@ -43,8 +44,9 @@ CREATE TABLE BOARD (
     board_hit INT DEFAULT 0 NOT NULL, -- 게시물 조회수
     board_file VARCHAR(500), -- 첨부 파일 경로
     KEY board_FK (user_id),
-    CONSTRAINT board_FK FOREIGN KEY (user_id) REFERENCES member (user_id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT board_FK FOREIGN KEY (user_id) REFERENCES USER (user_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 
 
 //게시판 - 파일
@@ -74,8 +76,9 @@ CREATE TABLE NOTICE (
     notice_hit INT DEFAULT 0 NOT NULL, -- 게시물 조회수
     notice_file VARCHAR(500), -- 첨부 파일 경로
     KEY notice_FK (user_id),
-    CONSTRAINT notice_FK FOREIGN KEY (user_id) REFERENCES user (user_id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT notice_FK FOREIGN KEY (user_id) REFERENCES USER (user_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 
 
 //공지사항 - 파일
@@ -87,8 +90,9 @@ CREATE TABLE notice_file (
   notice_no INT(11) NOT NULL, -- 공지사항 번호
   PRIMARY KEY (uuid),
   KEY notice_no (notice_no),
-  CONSTRAINT notice_file_fk FOREIGN KEY (notice_no) REFERENCES notice (notice_no) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT notice_file_fk FOREIGN KEY (notice_no) REFERENCES NOTICE (notice_no) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 
 
 // 접종 예약
@@ -103,3 +107,5 @@ CREATE TABLE Reservation (
     reserve_date DATE, -- 접종 일자
     reserve_local VARCHAR(100) -- 접종 장소
 );
+
+
