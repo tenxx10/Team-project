@@ -3,7 +3,7 @@
 
 CREATE TABLE USER (
     user_id       VARCHAR(20)      PRIMARY KEY,           -- 회원 아이디
-    user_pwd      VARCHAR(20)      NOT NULL,              -- 회원 비밀번호
+    user_pw      VARCHAR(20)      NOT NULL,              -- 회원 비밀번호
     user_name     VARCHAR(30)      NOT NULL,              -- 회원 이름
     user_gen      VARCHAR(20)      NOT NULL,              -- 회원 성별(male, female, etc)
     user_phone    VARCHAR(20)      NOT NULL UNIQUE,       -- 회원 전화번호
