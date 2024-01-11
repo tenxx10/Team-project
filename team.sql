@@ -97,15 +97,16 @@ CREATE TABLE notice_file (
 
 // 접종 예약
 CREATE TABLE Reservation (
-    ID INT AUTO_INCREMENT PRIMARY KEY, -- 예약자 식별 (자동 증가)
-    reserve_name VARCHAR(50) NOT NULL, -- 예약자 이름
-    reserve_age INT, -- 예약자 나이
-    reserve_gender VARCHAR(10), -- 예약자 성별
-    reserve_phone VARCHAR(20), -- 예약자 연락처
-    reserve_disease VARCHAR(50), -- 대상 질병
-    reserve_item VARCHAR(100), -- 백신 제품명
-    reserve_date DATE, -- 접종 일자
-    reserve_local VARCHAR(100) -- 접종 장소
+    ID INT AUTO_INCREMENT          PRIMARY KEY,    -- 예약자 식별 (자동 증가)
+    user_name     VARCHAR(30)      NOT NULL,       -- 회원 이름
+    user_age      INT(30)          NOT NULL,       -- 회원 이름
+    user_gen      VARCHAR(20)      ,               -- 회원 성별(male, female,etc)
+    user_phone    VARCHAR(20)      NOT NULL,       -- 회원 전화번호
+    user_email    VARCHAR(100)     NOT NULL,       -- 회원 이메일
+    reserve_disease VARCHAR(50)    NOT NULL,       -- 대상 질병
+    reserve_item VARCHAR(100),                     -- 백신 제품명
+    reserve_date DATE,                             -- 접종 예약 일자
+    reserve_local VARCHAR(100)                     -- 접종 장소
 );
 
 
