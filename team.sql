@@ -10,15 +10,15 @@ CREATE TABLE USER (
     user_date     DATE             NOT NULL               -- 회원 가입일
 );
 
+
 //로그인
-  
 CREATE TABLE login (
   user_id VARCHAR(20),
   user_pw VARCHAR(20)
 );
 
+
 //외부로그인
-  
 CREATE TABLE ExternalAuth (
     AuthID INT PRIMARY KEY,
     user_id INT,
@@ -28,8 +28,8 @@ CREATE TABLE ExternalAuth (
     FOREIGN KEY (user_id) REFERENCES User(user_id)
 );
 
+
 //게시판
-  
 CREATE TABLE BOARD (
     board_no INT AUTO_INCREMENT PRIMARY KEY, -- 게시물 번호
     user_id VARCHAR(20) NOT NULL, -- 회원 아이디 fk
@@ -60,8 +60,8 @@ CREATE TABLE board_file (
 );
 
 
+
 // 공지사항
-  
 CREATE TABLE NOTICE (
     notice_no INT AUTO_INCREMENT PRIMARY KEY, -- 게시물 번호
     user_id VARCHAR(20) NOT NULL, -- 회원 아이디 fk
