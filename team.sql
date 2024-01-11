@@ -99,7 +99,7 @@ CREATE TABLE notice_file (
 CREATE TABLE Reservation (
     ID INT AUTO_INCREMENT          PRIMARY KEY,    -- 예약자 식별 (자동 증가)
     user_name     VARCHAR(30)      NOT NULL,       -- 회원 이름
-    user_age      INT(30)          NOT NULL,       -- 회원 이름
+    user_age      INT(30)          NOT NULL,       -- 회원 나이
     user_gen      VARCHAR(20)      ,               -- 회원 성별(male, female,etc)
     user_phone    VARCHAR(20)      NOT NULL,       -- 회원 전화번호
     user_email    VARCHAR(100)     NOT NULL,       -- 회원 이메일
