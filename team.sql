@@ -89,8 +89,7 @@ CREATE TABLE notice_file (
 
 // 접종 예약
 CREATE TABLE Reservation (
-    ID INT AUTO_INCREMENT          PRIMARY KEY,    -- 예약자 식별 (자동 증가)
-    user_id       VARCHAR(20)      PRIMARY KEY,    -- 회원 아이디
+    user_id       VARCHAR(20) NOT NULL,            -- 회원 아이디 fk
     user_name     VARCHAR(30)      NOT NULL,       -- 회원 이름
     user_age      INT(30)          ,               -- 회원 나이
     user_gen      VARCHAR(20)      ,               -- 회원 성별(male, female,etc)
