@@ -25,7 +25,7 @@
         <main class="col-lg-10 col-md-7 ms-md-auto px-4">
         
         <!-- 여기부터 작성하면 됩니다.-->        
-
+    <%@ include file="/include/API_vac.jsp" %> <!-- vac.jsp 연결-->
 
         </main>
       </div>
