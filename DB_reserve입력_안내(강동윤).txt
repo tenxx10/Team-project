@@ -1,0 +1,59 @@
+* DB 실행
+
+
+1.데이터베이스 생성 (백신친구) 
+CREATE DATABASE VAC;
+
+2. 데이터 베이스 생성확인
+SHOW DATABASES;
+
+3. 데이터 베이스 접근권한부여 (FLUSH PRIVILEGES;는 새로고침)
+GRANT ALL PRIVILEGES ON vac.* TO 'root'@'localhost' IDENTIFIED BY '1234';
+FLUSH PRIVILEGES;
+
+4.vac 연결
+USE vac
+
+5.테이블 확인
+show tables;
+
+6. 테이블 생성 (영역 전체 선택복사 붙여넣기로 입력 가능)
+CREATE TABLE reserve (
+user_id VARCHAR(20) NOT NULL,
+user_name VARCHAR(30) NOT NULL,
+user_age INT(30) NOT NULL,
+user_gen VARCHAR(20) NOT NULL,      
+reserve_phone INT(20) NOT NULL,   
+reserve_email VARCHAR(100) NOT NULL,
+reserve_disease VARCHAR(50) NOT NULL,
+reserve_item VARCHAR(100) NOT NULL,    
+reserve_date DATE NOT NULL,
+reserve_local VARCHAR(100) NOT NULL
+);
+
+7. 데이터 확인
+DESC reserve;
+
+--------------------------------
+
+8-1. 칼럼맨뒤 추가 (추가된칼럼은 반드시 마지막에 위치)
+ALTER TABLE reserve
+ADD 칼럼명 데이터유형;
+
+8-2. 칼럼 맨앞추가
+ALTER TABLE reserve ADD COLUMN 칼럼명 데이터유형 NOT NULL FIRST
+
+
+9. 칼럼삭제
+ALTER TABLE reserve DROP COLUMN 칼럼명; 
+
+10-1.칼럼명 변경 (3.1. ALTER TABLE [테이블명] CHANGE COLUMN [기존컬럼명] [변경할 컬럼명] [컬럼타입];
+ALTER TABLE reserve CHANGE COLUMN 기존칼럼명 바꿀이름 int(원래타입);
+
+10-2. 칼럼타입변경 ALTER TABLE [테이블명] MODIFY COLUMN [컬럼명] [변경할컬럼타입]
+ALTER TABLE reserve MODIFY COLUMN 칼럼명 varchar(128)(변경할타입);
+
+11. 제약조건추가
+ALTER TABLE reserve
+ADD CONSTRAINT 제약조건명 제약조건 (칼럼명);
+
