@@ -35,7 +35,7 @@
     // 질병 정보를 저장하는 리스트
     List<DiseaseInfo> diseaseList = new ArrayList<>();
 
-    DocumentBuilder builder = null;
+    DocumentBuilder builder = null; 
     String apiUrl = "https://apis.data.go.kr/1790387/vcninfo/getCondVcnCd";
     String serviceKey = "Iio1DypG3KW5M95/c2oKNLCQ1a78qDZeIpi7WByJfTvKHAwXdudqfXK7WaU+zAFsARYI9iP+zB+Lucd8jov61Q==";
 
@@ -78,7 +78,7 @@
 </head>
 <body>
 
-    <table border="1">
+    <table border="1"> <!-- 표그리기-->
         <thead>
             <tr>
                 <th>질병 코드</th>
