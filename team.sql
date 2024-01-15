@@ -101,4 +101,17 @@ CREATE TABLE Reservation (
     reserve_local VARCHAR(100)                     -- 접종 장소
 );
 
+// 접종 예약 (testversion) --위 접종예약자로 입력되지 않아 아래 명으로 변경
+CREATE TABLE reserve (
+user_id VARCHAR(20) NOT NULL,
+user_name VARCHAR(30) NOT NULL,
+user_age INT(30) NOT NULL,
+user_gen VARCHAR(20) NOT NULL,      
+reserve_phone INT(20) NOT NULL,   
+reserve_email VARCHAR(100) NOT NULL,
+reserve_disease VARCHAR(50) NOT NULL,
+reserve_item VARCHAR(100) NOT NULL,    
+reserve_date DATE NOT NULL,
+reserve_local VARCHAR(100) NOT NULL
+);
 
