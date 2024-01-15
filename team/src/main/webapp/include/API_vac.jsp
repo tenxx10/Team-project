@@ -121,7 +121,6 @@
                 <table border="1">
                     <thead>
                         <tr>
-                            <th>질병 코드</th>
                             <th>질병명</th>
                             <th>상세정보</th>
                         </tr>
