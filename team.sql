@@ -88,30 +88,19 @@ CREATE TABLE notice_file (
 
 
 // 접종 예약
-CREATE TABLE Reservation (
-    user_id       VARCHAR(20) NOT NULL,            -- 회원 아이디 fk
-    user_name     VARCHAR(30)      NOT NULL,       -- 회원 이름
-    user_age      INT(30)          ,               -- 회원 나이
-    user_gen      VARCHAR(20)      ,               -- 회원 성별(male, female,etc)
-    reserve_phone    INT(20)       NOT NULL,       -- 예약자 전화번호
-    reserve_email    VARCHAR(100)  ,               -- 예약자 이메일
-    reserve_disease VARCHAR(50)    NOT NULL,       -- 대상 질병
-    reserve_item VARCHAR(100),                     -- 백신 제품명
-    reserve_date DATE,                             -- 접종 예약 일자
-    reserve_local VARCHAR(100)                     -- 접종 장소
+CREATE TABLE reserve (
+  reserve_no INT AUTO_INCREMENT PRIMARY KEY,                 --예약자 번호 부여
+  user_id VARCHAR(20) NOT NULL,                              --회원 아이디 FK
+  user_name VARCHAR(30) NOT NULL,                            --회원이름
+  reserve_gen VARCHAR(20) NOT NULL,                          --예약자성별      
+  reserve_age INT(30) NOT NULL,                              --예약자 나이
+  reserve_phone VARCHAR(20) NOT NULL,                        --예약자 연락처   
+  reserve_email VARCHAR(100) NOT NULL,                       --예약자 이메일
+  reserve_disease VARCHAR(50) NOT NULL,                      --접종대상질병
+  reserve_item VARCHAR(100) NOT NULL,                        --접종주사 제품명    
+  reserve_date DATE NOT NULL,                                --접종희망일
+  reserve_local VARCHAR(100) NOT NULL,                       --접종희망장소
+  CONSTRAINT reserve_FK FOREIGN KEY (user_id) REFERENCES USER (user_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-// 접종 예약 (testversion) --위 접종예약자로 입력되지 않아 아래 명으로 변경
-CREATE TABLE reserve (
-user_id VARCHAR(20) NOT NULL,
-user_name VARCHAR(30) NOT NULL,
-user_age INT(30) NOT NULL,
-user_gen VARCHAR(20) NOT NULL,      
-reserve_phone INT(20) NOT NULL,   
-reserve_email VARCHAR(100) NOT NULL,
-reserve_disease VARCHAR(50) NOT NULL,
-reserve_item VARCHAR(100) NOT NULL,    
-reserve_date DATE NOT NULL,
-reserve_local VARCHAR(100) NOT NULL
-);
 
