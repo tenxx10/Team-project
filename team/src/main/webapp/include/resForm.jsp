@@ -10,7 +10,7 @@
 
 <!-- jsp. 490p 참조 -->
 <style>
-	table{
+	table{ 
 		margine : auto;
 		width : 400px;
 		border : 1px solid gray;
@@ -38,16 +38,16 @@
 		<td><input type= "text" name= "user_id" user_id= "user_id"/></td>
 	</tr>
 	<tr>
-		<td><label for = "user_name">예약자 이름 : </label></td>
+		<td><label for = "user_name">회원 이름 : </label></td>
 		<td><input type= "text" name= "user_name" user_name= "user_name"/></td>
 	</tr>
 	<tr>
-		<td><label for = "user_age">예약자 나이 : </label></td>
-		<td><input type= "text" name= "user_age" user_age= "user_age"/></td>
+		<td><label for = "reserve_gen">예약자 성별 : </label></td>
+		<td><input type= "text" name= "reserve_gen" reserve_gen= "reserve_gen"/></td>
 	</tr>
 	<tr>
-		<td><label for = "user_gen">예약자 성별 : </label></td>
-		<td><input type= "text" name= "user_gen" user_gen= "user_gen"/></td>
+		<td><label for = "reserve_age">예약자 나이 : </label></td>
+		<td><input type= "text" name= "reserve_age" reserve_age= "reserve_age"/></td>
 	</tr>
 	<tr>
 		<td><label for = "reserve_phone">예약자 연락처 : </label></td>
