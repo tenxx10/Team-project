@@ -7,8 +7,8 @@
 
     String user_id = request.getParameter("user_id");
     String user_name = request.getParameter("user_name");
-    int user_age = Integer.parseInt(request.getParameter("user_age"));
-    String user_gen = request.getParameter("user_gen");
+    String reserve_gen = request.getParameter("reserve_gen");
+    int reserve_age = Integer.parseInt(request.getParameter("reserve_age"));
     String reserve_phone = request.getParameter("reserve_phone");
     String reserve_email = request.getParameter("reserve_email");
     String reserve_disease = request.getParameter("reserve_disease");
@@ -32,12 +32,12 @@
         connection = DriverManager.getConnection(url, username, password);
 
         // 데이터 삽입 쿼리
-        String insertQuery = "INSERT INTO reserve (user_id, user_name, user_age, user_gen, reserve_phone, reserve_email, reserve_disease, reserve_item, reserve_date, reserve_local) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO reserve (user_id, user_name, reserve_gen, reserve_age, reserve_phone, reserve_email, reserve_disease, reserve_item, reserve_date, reserve_local) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         pstmt = connection.prepareStatement(insertQuery);
         pstmt.setString(1, user_id);
         pstmt.setString(2, user_name);
-        pstmt.setInt(3, user_age);
-        pstmt.setString(4, user_gen);
+        pstmt.setString(3, reserve_gen);
+        pstmt.setInt(4, reserve_age);
         pstmt.setString(5, reserve_phone);
         pstmt.setString(6, reserve_email);
         pstmt.setString(7, reserve_disease);
@@ -47,13 +47,13 @@
 
         int result = pstmt.executeUpdate();
 
-        if (result != 0) {
-            //out.println("<script>");
-            //out.println("location.href='resForm.jsp'");
-            //out.println("</script>");
+        if (result != 0) {  //예약결과 출력
+            
         	out.println("예약이 완료되었습니다.");
+        	out.println("<a href='Insert.jsp'> 조회페이지로 이동</a>");
         } else {
             out.println("예약에 실패하였습니다.");
+            out.println("<a href='resForm.jsp'> 예약페이지로 이동</a>");
         }
     } catch (Exception e) {
         e.printStackTrace();
