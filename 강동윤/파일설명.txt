@@ -1,0 +1,17 @@
+1.파일설명
+	*include 폴더
+	1) cate.jsp : 질병정보, 예약하기 카테고리 2건 추가
+
+	*META-INF 폴더
+	2) context.xml : DB연결 코드 (비밀번호 등)
+
+	*view
+	1) vacInfo.jsp : 질병 정보 페이지
+	2) vacResForm.jsp : 접종예약신청서 페이지
+	3) vacResProcess.jsp : 접종신청프로세스
+	4) vacResView.jsp : 신청내역조회/삭제 페이지
+	5) vacResCancelProcess.jsp : 접종취소프로세스
+
+
+
+* vacResView.jsp 는 마이페이지에 포함되면 좋을것 같습니다.
