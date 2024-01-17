@@ -48,27 +48,31 @@
 <body>
 
 <%
-    Connection connection = null;
+
+
+
+
+    Connection conn = null;
     PreparedStatement preparedStatement = null;
 
     try {
-        // JDBC 드라이버 로드
-        Class.forName("org.mariadb.jdbc.Driver");
+    	// 데이터베이스 연결 정보
+    	Context initContext = new InitialContext();
+    	Context envContext  = (Context)initContext.lookup("java:comp/env");
+    	DataSource ds = (DataSource) envContext.lookup("jdbc/mariadb");
+    	
+    	// 데이터베이스 연결
+    	conn = ds.getConnection();
+        
 
-        // 데이터베이스 연결 정보
-        String url = "jdbc:mariadb://localhost:3306/vac";
-        String username = "root";
-        String password = "1234";
-
-        // 데이터베이스 연결
-        connection = DriverManager.getConnection(url, username, password);
+        
 
         // 사용자로부터의 취소 대상 예약 번호 받아오기
         int reserveNoToCancel = Integer.parseInt(request.getParameter("reserve_no"));
 
         // 데이터 삭제 쿼리
         String deleteQuery = "DELETE FROM reserve WHERE reserve_no=?";
-        preparedStatement = connection.prepareStatement(deleteQuery);
+        preparedStatement = conn.prepareStatement(deleteQuery);
         preparedStatement.setInt(1, reserveNoToCancel);
 
         // 쿼리 실행
@@ -87,7 +91,7 @@
         // 리소스 정리
         try {
             if (preparedStatement != null) preparedStatement.close();
-            if (connection != null) connection.close();
+            if (conn != null) conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
