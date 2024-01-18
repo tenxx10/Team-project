@@ -39,18 +39,8 @@
             
                 <!-- 여기부터 작성하면 됩니다.-->  
                 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Cancel Process</title>
-</head>
-<body>
 
 <%
-
-
-
 
     Connection conn = null;
     PreparedStatement preparedStatement = null;
@@ -97,11 +87,9 @@
         }
     }
 %>
-
-</body>
-</html>
-                
+       
                 <!--  여기까지 -->
+
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
