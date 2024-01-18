@@ -14,33 +14,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>예방접종예약</title>
+    <title>예약신청페이지</title>
     
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-</head>
-<body>
-    <!-- Include header.jsp -->
-    <%@ include file="/include/header.jsp" %>
-    <!-- Page content -->
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Include cate.jsp -->
-            <%@ include file="/include/cate.jsp" %>
-            <!-- Main content -->
-            <main class="col-lg-10 col-md-7 ms-md-auto px-4">
-            
-                <!-- 여기부터 작성하면 됩니다.-->  
-                
- <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>예약신청페이지</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 
-<!-- jsp. 490p 참조 -->
 <style>
 	table{ 
 		margine : auto;
@@ -56,8 +36,23 @@
 
 </style>
 </head>
-
 <body>
+    <!-- Include header.jsp -->
+    <%@ include file="/include/header.jsp" %>
+    <!-- Page content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Include cate.jsp -->
+            <%@ include file="/include/cate.jsp" %>
+            <!-- Main content -->
+            <main class="col-lg-10 col-md-7 ms-md-auto px-4">
+            
+                <!-- 여기부터 작성하면 됩니다.-->  
+                
+
+<!-- jsp. 490p 참조 -->
+
+
 <form name ="resForm" action="vacResProcess.jsp" method = "post">
 <table>
 	<tr>
@@ -113,8 +108,6 @@
 	</tr>		
 </table>
 </form>
-</body>
-</html>
 </form>               
                 
                 
