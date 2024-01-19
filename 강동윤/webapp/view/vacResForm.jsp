@@ -14,27 +14,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>예약신청페이지</title>
+    <title>예방접종예약</title>
     
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-
-<style>
-	table{ 
-		margine : auto;
-		width : 400px;
-		border : 1px solid gray;
-		text-align: center;
-		
-	}
-	.td_title{
-		font-weight: bold;
-		font-size: x-large;
-	}
-
-</style>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
     <!-- Include header.jsp -->
@@ -49,12 +34,33 @@
             
                 <!-- 여기부터 작성하면 됩니다.-->  
                 
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>예약신청페이지</title>
 
 <!-- jsp. 490p 참조 -->
+<style>
+	table{ 
+		margine : auto;
+		width : 400px;
+		border : 0px solid gray;
+		text-align: center;
+		
+	}
+	.td_title{
+		font-weight: bold;
+		font-size: x-large;
+	}
 
+</style>
+</head>
 
+<body>
 <form name ="resForm" action="vacResProcess.jsp" method = "post">
 <table>
+<br>
 	<tr>
 		<td colspan="2" class = "td_title">
 			접종 예약 신청
@@ -108,6 +114,8 @@
 	</tr>		
 </table>
 </form>
+</body>
+</html>
 </form>               
                 
                 
