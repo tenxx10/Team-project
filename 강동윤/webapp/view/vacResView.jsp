@@ -42,7 +42,7 @@
     <label for="user_id">회원아이디:</label>
     <input type="text" name="user_id" id="user_id" required>
     <input type="submit" value="Submit">
-    <% out.println("<a href='resForm.jsp'> 예약페이지로 이동</a>"); %> <!-- 임시 조회코드 나중에 로그인한 회원아이디로 자동수정 -->
+    <% out.println("<a href='resForm.jsp'> 예약페이지로 이동</a>"); %> <!-- 임시 조회코드 나중에 로그인한 회원아이디로 수정 -->
 </form>
 
 
@@ -62,7 +62,8 @@
         conn = ds.getConnection();
 
         // 사용자로부터의 취소 대상 예약 아이디 받아오기
-        String userIdToCancel = request.getParameter("user_id");
+        String userIdToCancel = request.getParameter("user_id"); //시험코드 ()
+        //String userIdToCancel = (String) session.getAttribute("loggedInUserId"); //로그인된 아이디 불러오는 코드
         
         // 데이터 조회 쿼리
         String selectQuery = "SELECT * FROM reserve WHERE user_id = ?";
