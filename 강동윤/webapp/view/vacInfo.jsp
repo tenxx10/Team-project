@@ -97,13 +97,16 @@
                     }
                 %>
 <br>
-                <table border="1">
+                <table>
                     <thead>
                         <tr>
                             <th>예방접종대상질병</th>
                         </tr>
+                        
                     </thead>
+                    <br>
                     <tbody>
+                    	
                         <% for (DiseaseInfo disease : diseaseList) { %>
                             <tr>
                                 <td><a href="?vcnCd=<%= disease.getCode() %>"><%= disease.getName() %></a></td>
@@ -136,18 +139,71 @@
                 %>
 
 							<br>
-                            <table border="1">
+                            
                                 <thead>
                                     <tr>
-                                        <th>질병명</th>
-                                        <th>상세정보</th>
+                            			<br>
+                                     	<hr style="border-width:5px 0 0 0; border-color:#000;"> <!-- 경계선 -->
+
+                                        <td><strong><%= detailNodeList.item(0).getChildNodes().item(0).getTextContent()%></strong></td> <!--  .replace("▶", "<br><br>▶").replace("?", "?<br>") 가독성 -->
+                                        <br>
+                                        <br>
                                         
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><%= detailNodeList.item(0).getChildNodes().item(0).getTextContent().replace("(", "<br>(")%></td> <!--  .replace("▶", "<br><br>▶").replace("?", "?<br>") 가독성 -->
-                                        <td><%= detailNodeList.item(0).getChildNodes().item(1).getTextContent().replace("▶", "<br><br>▶").replace("?", "?<br>") %></td> <!--  .replace("▶", "<br><br>▶").replace("?", "?<br>") 가독성 -->
+                                        <td><%= detailNodeList.item(0).getChildNodes().item(1).getTextContent()
+                                        
+                                        
+                                        //상세내용 정리 태그 시작 (가독성향상)
+                                        
+                                        //세부 (페렴구균)
+                                         
+
+                                        //전체
+                                        .replace("▶", "<br><br><hr></hr><br>▶") // 전체
+                                        .replace("?", "?<br><br>")		//전체
+                                        .replace("•", "<br>&emsp;•&ensp;") 	//전체
+                                        .replace("※", "<br>&emsp;※&ensp; ") //전체
+                                        .replace("●", "<br>&emsp;●&ensp;")
+                                        .replace(".", ".<br>")
+                           				
+                                        //세부 (b형헤모필루스)
+										.replace("1)", "<br>&emsp;&emsp;1)")
+                                        .replace("2)", "<br>&emsp;&emsp;2)")
+                                        .replace("3)", "<br>&emsp;&emsp;3)")
+                                        .replace("ㆍ", "<br>&emsp;&emsp;&ensp;ㆍ")
+                                        .replace("3회 접종①", "3회 접종")
+                                        .replace("권장①", "권장")
+                                        .replace("이전 접종력과 상관없이, 이식 6-12개월 이후부터 최소 4주 간격으로 3회 접종", "")
+                                        .replace("4주 간격으로 3회 접종", "4주 간격으로 3회 접종권장")
+                                        
+                                        
+                                        //"-"부분 정렬 1. (.replace 적용 제외되어야 하는 부분)
+                                        .replace("(질병관리청고시 제2023-17호)", "(질병관리청고시 제2023$17호)")
+                                        .replace("DTaP-IPV-HepB-Hib", "DTaP$IPV$HepB$Hib") 
+                                        .replace("DTaP-IPV", "DTaP$IPV") 
+                                        .replace("DTaP-IPV/Hib", "DTaP$IPV/Hib")
+                                        .replace("DTaP-IPV/Hib", "DTaP$IPV/Hib")
+                                        .replace("Varicella-zoster virus", "Varicella$zoster")
+                                        .replace("Ramsay-Hunt", "Ramsay$Hunt")
+                                        .replace("(표.1)", "[표.1]")
+                                      	//"-"부분 정렬 2.
+                                       	.replace("-", "<br>&emsp;&ensp;-") //반드시 정렬1 다음에 위치
+                                        .replace("$", "-")	//반드시 마지막에 위치
+                                        
+                                        
+                                        //내용 요약정리(일부내용 삭제)
+                                  		.replace("① 아관긴급: 개구운동이 제한되어 입을 충분히 벌리지 못하는 상태② 후궁반장: 온몸에 걸친 근육의 긴장 발작으로 팔다리를 뻣뻣하게 뻗고 등을 활처럼 젖히는 상태", "")
+                                  		.replace("아관긴급①, 후궁반장②", "아관긴급, 후궁반장")
+                                        //상세내용 정리 태그 끝(가독성향상)
+                                        
+                                        %>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
