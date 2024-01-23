@@ -1,3 +1,14 @@
+* new 추가 (캘린더)
+    
+CREATE TABLE events (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255),
+    start_date DATETIME,
+    end_date DATETIME
+);
+
+
+
 // 회원가입
 
 
