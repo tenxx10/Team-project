@@ -76,34 +76,38 @@
                         resultSet = preparedStatement.executeQuery();
 
                         // 예약내역 출력
-                        while (resultSet.next()) {
-                            int reserveNo = resultSet.getInt("reserve_no");
-                            String reserveGen = resultSet.getString("reserve_gen");
-                            int reserveAge = resultSet.getInt("reserve_age");
-                            String reservePhone = resultSet.getString("reserve_phone");
-                            String reserveEmail = resultSet.getString("reserve_email");
-                            String reserveDisease = resultSet.getString("reserve_disease");
-                            String reserveItem = resultSet.getString("reserve_item");
-                            Date reserveDate = resultSet.getDate("reserve_date");
-                            String reserveLocal = resultSet.getString("reserve_local");
+                       while (resultSet.next()) {
+								int reserveNo = resultSet.getInt("reserve_no");
+								
+								String reserveGen = resultSet.getString("reserve_gen");
+								int reserveAge = resultSet.getInt("reserve_age");
+								String reservePhone = resultSet.getString("reserve_phone");
+								String reserveEmail = resultSet.getString("reserve_email");
+								String reserveDisease = resultSet.getString("reserve_disease");
+								String reserveItem = resultSet.getString("reserve_item");
+								Date reserveDate = resultSet.getDate("reserve_date");
+								String reserveLocal = resultSet.getString("reserve_local");
 
-                            // 예약 정보 출력
-                            out.println("<form action='vacResCancelProcess.jsp' method='post'>");
-                            out.println("예약번호: " + reserveNo + "<br>");
-                            out.println("예약자 성별: " + reserveGen + "<br>");
-                            out.println("예약자 나이: " + reserveAge + "<br>");
-                            out.println("예약자 연락처: " + reservePhone + "<br>");
-                            out.println("예약자 이메일: " + reserveEmail + "<br>");
-                            out.println("접종대상질병: " + reserveDisease + "<br>");
-                            out.println("접종주사제품명: " + reserveItem + "<br>");
-                            out.println("접종 희망일: " + reserveDate + "<br>");
-                            out.println("접종 장소: " + reserveLocal + "<br>");
+								// 예약내용확인 (화면 출력구간)
+								out.println("<form action='vacResCancelProcess.jsp' method='post'>"); // 취소 프로세스 파일명 입력
+								out.println("예약번호: " + reserveNo + "<br>");
+								out.println("회원 아이디: " + userId + "<br>");
+								out.println("회원 이름: " + userName + "<br>");
+								out.println("예약자 성별: " + reserveGen + "<br>");
+								out.println("예약자 나이: " + reserveAge + "<br>");
+								out.println("예약자 연락처: " + reservePhone + "<br>");
+								out.println("예약자 이메일: " + reserveEmail + "<br>");
+								out.println("접종대상질병: " + reserveDisease + "<br>");
+								out.println("접종주사제품명: " + reserveItem + "<br>");
+								out.println("접종 희망일: " + reserveDate + "<br>");
+								out.println("접종 장소: " + reserveLocal + "<br>");
 
-                            out.println("<input type='hidden' name='reserve_no' value='" + reserveNo + "'>");
-                            out.println("<input type='submit' value='예약취소'>");
-                            out.println("</form>");
-                            out.println("<br>");
-                        }
+								out.println("<input type='hidden' name='reserve_no' value='" + reserveNo + "'>");
+								out.println("<input type='submit' value='예약취소'>"); // 예약취소버튼
+
+								out.println("</form>");
+								out.println("<br>");
+							}
                      // resultSet.beforeFirst()를 사용하여 커서를 첫 번째 레코드 이전으로 되돌립니다.
                         resultSet.beforeFirst();
                         // 예약내역이 없는 경우 메시지 표시
