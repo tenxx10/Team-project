@@ -1,0 +1,178 @@
+vacInfo.jsp - 코드수정 (기능 다시구현)
+cate.jps - 질병목록추가
+dList- 폴더 추가(질병세부정보 추가)
+
+*css 능력이 매우 미흡하여, 최대한 긁어왔습니다...
+보시고 수정할부분 확인바랍니다.
+*
+
+
+
+
+
+<style> 주석
+* 해당코드 바로옆
+<style type="text/css">
+
+<!-- 질병목록 -->
+d.d{
+float : side;
+}
+
+<!-- 큰제목 -->
+h2{ 
+    color: #555;
+ }
+
+
+<!-- 제목 바로 다음 문장 -->
+h3.h3-first{
+    color: #444;
+    margin-bottom: 30px;
+    margin-top: 50px;
+    }
+    
+    
+<!-- 소제목~~요?로 끝나는 질문 -->    
+p{
+    
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    margin: 40;
+    padding: 0 40px;
+    word-break: keep-all;
+    font-size: inherit;
+    color: #666;
+    margin-bottom: 40px;
+ }
+
+<!-- 소제목 배경디자인-->
+dt{ 
+	background-color: #f6fafd;
+	border-top: 1px solid #069be1;
+	border-bottom: 1px solid #ddd;
+	padding: 5px 15px;
+	font-size: 15px;
+	color: #666;
+    }
+
+<!-- 접종방법, 접종대상 -->    
+span.sub-qna{
+	-webkit-text-size-adjust: 100%;
+    list-style: none;
+    color: #666;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 23px;
+    border: 1px solid #c2d7eb;
+    background-color: #ecf6ff;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 21px;
+    
+    padding: 0 10px;
+    margin-bottom: 5px;
+}
+
+<!-- 주의사항 및 참고내용 -->
+div.box-gray{
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    line-height: 22px;
+    color: #666;
+    
+    padding: 15px 20px;
+    margin-top: 20px;
+    }
+    
+<!-- 점으로 시작해야 하는 목록 -->    
+li{
+	line-height: 23px;
+    list-style: none;
+    box-sizing: border-box;
+    position: relative;
+    font-size: inherit;
+    color: #666;
+    margin-bottom: 0;
+    padding-left: 7px;
+    
+    }
+
+<!--표 -->    
+div.top-tblinfo{
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 500;
+    color: #666;
+    
+    text-align: center;
+    padding: 15px 0;
+    }
+    
+    
+<!--폐렴구균 내 표 -->    
+th.col{
+    
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    word-break: break-all;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #666;
+    letter-spacing: -0.075em;
+    padding: 14px 10px;
+    
+}    
+
+<!-- 표 내용, 폐렴--> 
+th.row{
+    
+    -webkit-text-size-adjust: 100%;
+    list-style: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    word-break: break-all;
+    box-sizing: border-box;
+    vertical-align: top;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #666;
+    letter-spacing: -0.08em;
+    padding: 14px 20px 13px 20px;
+    background-color: #f7f7f7;
+    text-align: left;
+    border-left: none;
+
+}
+
+<!-- 표, 폐렴, 홍역-->
+td{
+	border-collapse: collapse;
+    word-break: break-all;
+    box-sizing: border-box;
+    vertical-align: top;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #666;
+    
+    padding: 14px 20px 13px 20px;
+
+
+}
+        </style>   
