@@ -43,41 +43,44 @@
     
     <style type="text/css">
         #listForm {
-            margin-top: 20px;
+            margin-top: 100px;
+            margin-right: 100px;
+            margin-left: 100px;
+            
+        }
+
+        #tr_top {
+            background-color: #f2f2f2;
+            font-size: 15px;
+            padding: 14px;
+            font-weight: 500;
+        }
+
+        #pageList {
+            text-align: center;
+            margin-bottom: 100px;
         }
 
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table, th, td {
             border: 1px solid #ddd;
+            text-align: center;
         }
 
-        th, td {
-            padding: 15px;
-            text-align: left;
+        td, th {
+            padding: 10px;
+            border: 1px solid #ddd; /* 테이블 안쪽 구분선 적용 */
         }
 
-        th {
-            background-color: #f2f2f2;
+        /* 번호 칸 스타일 조정 */
+        td:nth-child(1) {
+            width: 80px; /* 번호 칸의 너비를 80픽셀로 조정 */
         }
 
-        td {
-            background-color: #fff;
+        /* 제목 칸 스타일 조정 */
+        td:nth-child(2) {
+            text-align: left; /* 텍스트를 왼쪽 정렬로 설정 */
         }
-
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        #pageList {
-            margin-top: 20px;
-        }
-
     </style>
     
   </head>
@@ -96,7 +99,7 @@
         <!-- 공지사항 리스트 -->
         <section id="listForm">
         <h2>글 목록</h2>
-        	<a href="<%=request.getContextPath()%>/boardWriteForm.bo">공지사항글쓰기</a>
+        	<a href="<%=request.getContextPath()%>/boardWriteForm.bo" style="color: black;">공지사항글쓰기</a>
         	
         <table>
             <%
