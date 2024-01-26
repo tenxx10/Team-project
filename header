@@ -17,7 +17,7 @@
            <a class="navbar-brand" href="<%=request.getContextPath()%>/view/index.jsp" style="font-family:'Black Han Sans', sans-serif;  font-size: 25px;
            ">
            <img
-           src="../assets/icon8.png"
+           src="<%=request.getContextPath()%>/assets/icon8.png"
            alt="Logo"
            width="33"
            height="32"
