@@ -1,0 +1,34 @@
+1. 개선해야할것
+* 전체적으로 코드 정리 (가독성 정리)
+* vacResForm.jsp 에서 <script>는 각 스크립트 설명을 위해 각각 3번 넣었습니다. (vacResUpdate.jsp와 동일한 스크립트)
+* vacResUpdate.jsp 에서 <script>는 각 스크립트 한 스크립트로 병합해두었으니 확인 바랍니다.
+
+2. 개요
+1) vacResForm.jsp : 미로그인 접속시 -> 로그인창 출력해서 바로 로그인되게 하거나 로그인 후 보던 로그인화면으로 돌아오기
+			질병미선택시 빨간 경고문 출력(기본 나오게 해놓기) , 질병선택시 문제 1. 직접입력후 공란도 (예약되는문제) 
+			해결안되면 직접입력기능 삭제고려
+2) vacResProcess.jsp : 완성
+3) vacResView : 윈도우창 줄이면 글자 세로로 바뀌는것 수정
+4) vacResCancelProcess.jsp : 완성
+5) vacUpdate.jsp : 날짜 경고문 출력위치 바꾸기, 
+6) vacUpdateProcess.jsp : 완성
+
+
+
+1. 1차 완성본 개선 및 수정해야할 사항
+
+
+1) vacResForm.jsp : 미로그인 접속시 -> 로그인창 출력해서 바로 로그인되게 하거나 로그인 후 보던 로그인화면으로 돌아오기
+			질병미선택시 빨간 경고문 출력(기본 나오게 해놓기) , 질병선택시 문제 1. 직접입력후 공란도 (예약되는문제) 
+			해결안되면 직접입력기능 삭제고려
+
+3) vacResView : 윈도우창 줄이면 글자 세로로 바뀌는것 수정
+
+5) vacUpdate.jsp : 날짜 경고문 출력위치 바꾸기, 
+
+
+완성된 파일
+
+2) vacResProcess.jsp : 완성
+4) vacResCancelProcess.jsp : 완성
+6) vacUpdateProcess.jsp : 완성
