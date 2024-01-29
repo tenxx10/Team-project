@@ -60,7 +60,7 @@ CREATE TABLE board_file (
     upload_path VARCHAR(4096) NOT NULL,   
     file_name VARCHAR(100) NOT NULL,        
     file_type VARCHAR(255) DEFAULT '1',       
-    board_no INT(11) NOT NULL,                 
+    board_no INT NOT NULL,                 
     PRIMARY KEY (uuid),
     CONSTRAINT board_file_fk FOREIGN KEY (board_no) REFERENCES board (board_no) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -87,7 +87,7 @@ CREATE TABLE notice_file (
     upload_path VARCHAR(4096) NOT NULL,         
     file_name VARCHAR(100) NOT NULL,              
     file_type VARCHAR(255) DEFAULT '1',             
-    notice_no INT(11) NOT NULL,                     
+    notice_no INT NOT NULL,                     
     PRIMARY KEY (uuid),
     CONSTRAINT notice_file_fk FOREIGN KEY (notice_no) REFERENCES NOTICE (notice_no) ON DELETE CASCADE ON UPDATE CASCADE
 );
