@@ -54,7 +54,7 @@ CREATE TABLE BOARD (
 
 6-4. 게시판 - 파일
 CREATE TABLE board_file (
-    uuid VARCHAR(500) NOT NULL,              
+    uuid VARCHAR(255) NOT NULL,              
     upload_path VARCHAR(4096) NOT NULL,   
     file_name VARCHAR(100) NOT NULL,        
     file_type VARCHAR(255) DEFAULT '1',       
@@ -81,7 +81,7 @@ CREATE TABLE NOTICE (
 
 6-6. 공지사항 - 파일
 CREATE TABLE notice_file (
-    uuid VARCHAR(500) NOT NULL,                    
+    uuid VARCHAR(255) NOT NULL,                    
     upload_path VARCHAR(4096) NOT NULL,         
     file_name VARCHAR(100) NOT NULL,              
     file_type VARCHAR(255) DEFAULT '1',             
