@@ -15,100 +15,76 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
+
 <body>
+    <!-- header.jsp 포함 -->
+    <%@ include file="/include/header.jsp"%>
+    <!-- 페이지 내용 -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- cate.jsp 포함 -->
+            <%@ include file="/include/cate.jsp"%>
+            <!-- 메인 내용 -->
+            <main class="col-lg-10 col-md-7 ms-md-auto px-4">
 
-	<!-- Include header.jsp -->
-	<%@ include file="/include/header.jsp"%>
-	<!-- Page content -->
-	<div class="container-fluid">
-		<div class="row">
-			<!-- Include cate.jsp -->
-			<%@ include file="/include/cate.jsp"%>
-			<!-- Main content -->
-			<main class="col-lg-10 col-md-7 ms-md-auto px-4">
+                <!-- 여기부터 작성하면 됩니다.-->
+                <!-- 게시판 등록 -->
+                <section id="writeForm">
+                    <div class="section section-properties">
+                        <div class="container">
+                            <div class="two_third first" style="height: auto">
+                                <div class="col-lg-12">
+                                    <h2 class="font-weight-bold text-primary heading">게시판 글등록</h2>
+                                    <hr />
+                                    <br> <br>
+                                    <div class="two_third first">
+                                        <form action="boardWritePro.bo" method="post" enctype="multipart/form-data" name="boardform">
+                                            <table class="table">
+                                                <tr>
+                                                    <th width=10% class="text-right">글쓴이</th>
+                                                    <td width=80%>
+                                                        <form method=post action="../freeboard/freeboard_insert.do">
+                                                            <input type=text size=15 class="input-sm" id="name" style="height: 30px" value="${sessionScope.name }">
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=20% class="text-right">제목</th>
+                                                    <td width=80%><input type=text name=subject size=50 class="input-sm" id="subject"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=20% class="text-right">내용</th>
+                                                    <td width=80%><textarea rows="10" cols="50" name=content id="content"></textarea></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width=20% class="text-right">비밀번호</th>
+                                                    <td width=80%><input type="password" name=pwd size=10 class="input-sm" id="pwd"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="td_left"><label for="BOARD_FILE">파일 첨부</label></td>
+                                                    <td class="td_right"><input name="BOARD_FILE" type="file" id="BOARD_FILE" required="required" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" class="text-center">
+                                                        <div class="mb-3">
+                                                            <button type="submit" class="btn btn-primary">등록</button>
+                                                            <button type="reset" class="btn btn-secondary">다시쓰기</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- 게시판 등록 -->
 
-				<!-- 여기부터 작성하면 됩니다.-->
-
-
-				<div class="section section-properties">
-					<div class="container">
-						<div class="two_third first" style="height: auto">
-							<div class="col-lg-12">
-								<h2 class="font-weight-bold text-primary heading">Board</h2>
-								<hr />
-								<br> <br>
-								<div class="two_third first">
-									<form method="post" action="../freeboard/insert_ok.do" id="frm"
-										enctype="multipart/form-data">
-										<table class="table">
-											<tr>
-												<th width=10% class="text-right">이름</th>
-												<td width=80%>
-													<form method=post action="../freeboard/freeboard_insert.do">
-														<input type=text size=15 class="input-sm" id="name"
-															style="height: 30px" value="${sessionScope.name }">
-													</form>
-												</td>
-											</tr>
-											<tr>
-												<th width=10% class="text-right">아이디</th>
-												<td width=80%>
-													<form method=post action="../freeboard/freeboard_insert.do">
-														<input type=text size=15 class="input-sm" id="id"
-															style="height: 30px" value="${sessionScope.id }">
-													</form>
-												</td>
-											</tr>
-											<tr>
-												<th width=20% class="text-right">제목</th>
-												<td width=80%><input type=text name=subject size=50
-													class="input-sm" id="subject"></td>
-											</tr>
-											<tr>
-												<th width=20% class="text-right">내용</th>
-												<td width=80%><textarea rows="10" cols="50"
-														name=content id="content"></textarea></td>
-											</tr>
-											<tr>
-												<th width=20% class="text-right">비밀번호</th>
-												<td width=80%><input type="password" name=pwd size=10
-													class="input-sm" id="pwd"></td>
-											</tr>
-											<tr>
-											</tr>
-											<tr>
-												<td class="td_left"><label for="BOARD_FILE">파일
-														첨부</label></td>
-												<td class="td_right"><input name="BOARD_FILE"
-													type="file" id="BOARD_FILE" required="required" /></td>
-											</tr>
-											<tr>
-												<td colspan="2" class="text-center">
-													<div class="wrap">
-														<td colspan="2">
-															<div align="center">
-																<input type="submit" value="등록"> <input
-																	type="button" value="목록"> <input type="button"
-																	value="수정"> <input type="button" value="삭제">
-																<td width="0">&nbsp;</td>
-															</div>
-														</td>
-													</div>
-												</td>
-											</tr>
-										</table>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				
-				
-			</main>
-		</div>
-	</div>
+            </main>
+        </div>
+    </div>
 
 
 	<!-- Include footer.jsp -->
