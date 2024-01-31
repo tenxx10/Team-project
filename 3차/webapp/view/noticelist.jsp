@@ -120,7 +120,7 @@ td:nth-child(2) {
 							<td><%= articleList.get(i).getBOARD_NUM() %></td>
 							<td>
 								<% if(articleList.get(i).getBOARD_RE_LEV()!=0){ %> <% for(int a=0; a <= articleList.get(i).getBOARD_RE_LEV()*2; a++){ %>
-								&nbsp; <% } %> <% } else { %> <% } %> <a
+								&nbsp; <% } %>re: <% } else { %> <% } %> <a
 								href="boardDetail.bo?board_num=<%= articleList.get(i).getBOARD_NUM() %>&page=<%= nowPage %>"
 								style="color: black;"> <%= articleList.get(i).getBOARD_SUBJECT() %>
 							</a>
