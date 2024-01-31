@@ -44,6 +44,14 @@
         <!-- 게시판 등록 -->
         <section id="writeForm">
         	<h2>공지사항글등록</h2>
+        	
+        	<%-- 세션을 통한 관리자 권한 확인 --%>
+            <%
+            	HttpSession userSession = request.getSession(false);
+                String id = (String) userSession.getAttribute("user_id");
+                if(id != null && id.equals("admin1234")) {
+             %>
+        	
         	<form action="boardWritePro.bo" method="post" enctype="multipart/form-data" name="boardform">
         		<table>
         			<tr>
@@ -72,6 +80,13 @@
         			<input type="reset" value="다시쓰기"/>
         		</section>
         	</form>
+        	
+        	<%
+               } else {
+                   out.println("<p>접근 권한이 없습니다.</p>");
+                   out.println("<button onclick=\"history.back()\">이전 페이지로 돌아가기</button>");
+                        }
+            %>
         </section>
         <!-- 게시판 등록 -->
    
