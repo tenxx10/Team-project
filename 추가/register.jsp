@@ -29,7 +29,7 @@
 
     try {
         // JDBC 드라이버 로딩  
-        Class.forName("com.mariadb.jdbc.Driver");
+        Class.forName("org.mariadb.jdbc.Driver");
 
         // 데이터베이스 연결
         conn = DriverManager.getConnection(url, dbUsername, dbPassword);
