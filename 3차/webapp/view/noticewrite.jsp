@@ -53,7 +53,7 @@
 					<%
 					HttpSession userSession = request.getSession(false);
 					String id = (String) userSession.getAttribute("user_id");
-					if (id != null && id.equals("admin")) { // 관리자 아이디 넣기 !! 
+					if (id != null && id.equals("admin1234")) { // 관리자 아이디 넣기 !! 
 					%>
 
 
