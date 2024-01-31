@@ -17,7 +17,7 @@
            <a class="navbar-brand" href="<%=request.getContextPath()%>/view/index.jsp" style="font-family:'Black Han Sans', sans-serif;  font-size: 25px;
            ">
            <img
-           src="<%=request.getContextPath()%>/assets/icon8.png"
+           src="../assets/icon8.png"
            alt="Logo"
            width="33"
            height="32"
@@ -30,7 +30,7 @@
            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-weight:bold;">
                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                    <li class="nav-item">
-                       <a class="nav-link" href="<%=request.getContextPath()%>/view/board.jsp">Board</a>
+                       <a class="nav-link" href="<%=request.getContextPath()%>/boardList.boa">Board</a>
                    </li>
                    <li class="nav-item">
                        <a class="nav-link" href="<%=request.getContextPath()%>/boardList.bo">Notice</a>
