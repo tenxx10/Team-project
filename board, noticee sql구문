@@ -1,3 +1,5 @@
+--이걸로 작성해주세요 
+
 create table board(
   BOARD_NUM INT NOT NULL,
   BOARD_NAME VARCHAR(20) NOT NULL,
