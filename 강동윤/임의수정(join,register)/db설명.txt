@@ -1,0 +1,84 @@
+alter database vac default character set UTF8;
+
+set 
+
+
+SELECT default_character_set_name, DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA 
+WHERE schema_name = "vac";
+
+
+SELECT CCSA.character_set_name FROM information_schema.`TABLES` T,
+       information_schema.`COLLATION_CHARACTER_SET_APPLICABILITY` CCSA
+WHERE CCSA.collation_name = T.table_collation
+  AND T.table_schema = "vac"
+  AND T.table_name = "user";
+
+
+
+db내에서만 표기 
+
+
+set names utf8;
+
+set names euckr;
+
+status;
+---------------------------------------------------------------------------------------------------------------
+
+MariaDB [vac]> status;
+--------------
+C:\Program Files\MariaDB 10.1\bin\mysql.exe  Ver 15.1 Distrib 10.1.13-MariaDB, for Win64 (AMD64)
+
+Connection id:          202
+Current database:       vac
+Current user:           root@localhost
+SSL:                    Not in use
+Using delimiter:        ;
+Server:                 MariaDB
+Server version:         10.1.13-MariaDB mariadb.org binary distribution
+Protocol version:       10
+Connection:             localhost via TCP/IP
+Server characterset:    utf8
+Db     characterset:    utf8
+Client characterset:    euckr <--  이부분만 변경됨 (set names utf8;) ---> web에서는 표기가 그대로 이며, Maria db 내에서 표기가 바뀜 (아래 참조)
+Conn.  characterset:    euckr <-- 이부분만 변경(set names utf8;) 
+TCP port:               3306
+Uptime:                 6 days 17 hours 18 min 45 sec
+
+Threads: 2  Questions: 1675  Slow queries: 0  Opens: 12  Flush tables: 1  Open tables: 20  Queries per second avg: 0.002
+
+
+-----------------------아래------------------
+set names euckr;
+일때
+
+MariaDB [vac]> SELECT*FROM user;
++-------------+---------+---------------+----------+---------------+---------------------+------------+
+| user_id     | user_pw | user_name     | user_gen | user_phone    | user_email          | user_date  |
++-------------+---------+---------------+----------+---------------+---------------------+------------+
+| 1234        | 1111    | 홍길동        | male     | 1012345678    | babo@naver.com      | 2024-01-15 |
+| adad1234    | 1234    | ?ª¨??´??¤ | male     | 01022222222   | adad1234@gmail.com  | 2024-01-31 |
+| admin1234   | 1234    | ?´???????    | male     | 01012341234   | admin1234@gmail.com | 2024-01-31 |
+| babo1234    | 1234    | ????¸¸??´  | male     | 01032251234   | gogo@gmail.com      | 2024-01-19 |
+| tester1234  | 1234    | 모르다        | female   | 010-1234-789  | grrr                | 2024-02-01 |
+| tester12345 | 1234    | 테스터라      | female   | 010-4567-1234 | gggggg              | 2024-02-01 |
++-------------+---------+---------------+-
+
+
+
+
+MariaDB [vac]> set names utf8; 일때
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [vac]> SELECT*FROM user;
++-------------+---------+--------------------+----------+---------------+---------------------+------------+
+| user_id     | user_pw | user_name          | user_gen | user_phone    | user_email          | user_date  |
++-------------+---------+--------------------+----------+---------------+---------------------+------------+
+| 1234        | 1111    | ?띻만??         | male     | 1012345678    | babo@naver.com      | 2024-01-15 |
+| adad1234    | 1234    | 챘짧짢챘짜쨈챘혢짚 | male     | 01022222222   | adad1234@gmail.com  | 2024-01-31 |
+| admin1234   | 1234    | 챗쨈?챘짝짭챙혷혨 | male     | 01012341234   | admin1234@gmail.com | 2024-01-31 |
+| babo1234    | 1234    | 챠혲혥챗쨍쨍챙혶쨈 | male     | 01032251234   | gogo@gmail.com      | 2024-01-19 |
+| tester1234  | 1234    | 紐⑤Ⅴ??         | female   | 010-1234-789  | grrr                | 2024-02-01 |
+| tester12345 | 1234    | ?뚯뒪?곕씪       | female   | 010-4567-1234 | gggggg              | 2024-02-01 |
++-------------+---------+--------------------+----------+---------------+---------------------+------------+
+6 rows in set (0.00 sec)
