@@ -2,6 +2,9 @@
 
 더조은아카데미 웹사이트 1조 <접종친구>
 
+![Untitled](https://github.com/tenxx10/Team-project/assets/143534556/c92e2566-d467-4883-801a-581d4c0f01b4)
+
+
 팀원
 - 강동윤
 - 권지훈
