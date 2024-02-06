@@ -1,4 +1,4 @@
-* DB 실행 (마리아디비10.1)
+ DB 실행 (마리아디비10.1)
 
 
 1.데이터베이스 생성 (백신친구) 
@@ -35,26 +35,45 @@ CREATE TABLE login (
   user_pw VARCHAR(20)
 );
 
-
 6-3. 게시판
-CREATE TABLE BOARD (
-    board_no INT AUTO_INCREMENT PRIMARY KEY,
-    user_id VARCHAR(20) NOT NULL,                  
-    user_name VARCHAR(30) NOT NULL,              
-    board_title VARCHAR(100) NOT NULL,            
-    board_content VARCHAR(8000) NOT NULL,      
-    board_group INT NOT NULL,                        
-    board_step INT NOT NULL,                          
-    board_date DATE DEFAULT CURRENT_DATE NOT NULL,
-    board_hit INT DEFAULT 0 NOT NULL,                       
-    board_file VARCHAR(500),                                 
-    KEY board_FK (user_id),
-    CONSTRAINT board_FK FOREIGN KEY (user_id) REFERENCES USER (user_id) ON DELETE CASCADE ON UPDATE CASCADE
-);
+create table board(
+  BOARD_NUM INT NOT NULL,
+  BOARD_NAME VARCHAR(20) NOT NULL,
+  BOARD_PASS VARCHAR(20) NOT NULL,
+  BOARD_SUBJECT VARCHAR(100) NOT NULL,
+  BOARD_CONTENT VARCHAR(8000) NOT NULL,
+  BOARD_FILE VARCHAR(500) NULL, -- NULL 허용으로 변경
+  BOARD_RE_REF INT NOT NULL,
+  BOARD_RE_LEV INT NOT NULL,
+  BOARD_RE_SEQ INT NOT NULL,
+  BOARD_READCOUNT INT DEFAULT 0,
+  BOARD_DATE DATE,
+  PRIMARY KEY(BOARD_NUM)
+  );
 
-6-4. 게시판 - 파일
+
+6-4. 공지사항
+create table noticee(
+  BOARD_NUM INT NOT NULL,
+  BOARD_NAME VARCHAR(20) NOT NULL,
+  BOARD_PASS VARCHAR(20) NOT NULL,
+  BOARD_SUBJECT VARCHAR(100) NOT NULL,
+  BOARD_CONTENT VARCHAR(8000) NOT NULL,
+  BOARD_FILE VARCHAR(500) NULL, 
+  BOARD_RE_REF INT NOT NULL,
+  BOARD_RE_LEV INT NOT NULL,
+  BOARD_RE_SEQ INT NOT NULL,
+  BOARD_READCOUNT INT DEFAULT 0,
+  BOARD_DATE DATE,
+  PRIMARY KEY(BOARD_NUM)
+  );
+
+
+-- 사용하지 않은 부분입니다.
+
+게시판 - 파일
 CREATE TABLE board_file (
-    uuid VARCHAR(500) NOT NULL,              
+    uuid VARCHAR(255) NOT NULL,              
     upload_path VARCHAR(4096) NOT NULL,   
     file_name VARCHAR(100) NOT NULL,        
     file_type VARCHAR(255) DEFAULT '1',       
@@ -63,25 +82,10 @@ CREATE TABLE board_file (
     CONSTRAINT board_file_fk FOREIGN KEY (board_no) REFERENCES board (board_no) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-6-5. 공지사항
-CREATE TABLE NOTICE (
-    notice_no INT AUTO_INCREMENT PRIMARY KEY,     
-    user_id VARCHAR(20) NOT NULL,                           
-    user_name VARCHAR(30) NOT NULL,                       
-    notice_title VARCHAR(100) NOT NULL,                     
-    notice_content VARCHAR(8000) NOT NULL,               
-    notice_group INT NOT NULL,                                
-    notice_step INT NOT NULL,                                 
-    notice_date DATE DEFAULT CURRENT_DATE NOT NULL,
-    notice_hit INT DEFAULT 0 NOT NULL,                       
-    notice_file VARCHAR(500),                                 
-    KEY notice_FK (user_id),
-    CONSTRAINT notice_FK FOREIGN KEY (user_id) REFERENCES USER (user_id) ON DELETE CASCADE ON UPDATE CASCADE
-);
 
-6-6. 공지사항 - 파일
+ 공지사항 - 파일
 CREATE TABLE notice_file (
-    uuid VARCHAR(500) NOT NULL,                    
+    uuid VARCHAR(255) NOT NULL,                    
     upload_path VARCHAR(4096) NOT NULL,         
     file_name VARCHAR(100) NOT NULL,              
     file_type VARCHAR(255) DEFAULT '1',             
@@ -90,13 +94,17 @@ CREATE TABLE notice_file (
     CONSTRAINT notice_file_fk FOREIGN KEY (notice_no) REFERENCES NOTICE (notice_no) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+-- 여기까지 사용하지 않은 부분입니다.
+
+
+
 6-7 접종 예약
 CREATE TABLE reserve (
   reserve_no INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(20) NOT NULL,
   user_name VARCHAR(30) NOT NULL,
   reserve_gen VARCHAR(20) NOT NULL,      
-  reserve_age INT NOT NULL,
+  reserve_age INT) NOT NULL,
   reserve_phone VARCHAR(20) NOT NULL,   
   reserve_email VARCHAR(100) NOT NULL,
   reserve_disease VARCHAR(50) NOT NULL,
@@ -145,5 +153,5 @@ DROP TABLE reserve;
 VALUES (데이터값1, 데이터값2, 데이터값3, ...)
 INSERT INTO user(user_id, user_pw, user_name, user_gen, user_phone, user_email, user_date)
 VALUES(1234, 1234, '홍길동', '남', 01012345678, 'babo@naver.com', '2024-01-15');
-
+	
 
